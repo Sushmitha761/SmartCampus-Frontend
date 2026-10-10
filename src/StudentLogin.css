@@ -1,0 +1,311 @@
+* {
+  box-sizing: border-box;
+}
+
+.student-login-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: linear-gradient(
+    135deg,
+    #eaf2ff 0%,
+    #f8fbff 50%,
+    #e8f8f4 100%
+  );
+}
+
+.student-login-card {
+  width: 900px;
+  max-width: 95%;
+
+  min-height: 520px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: white;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 50px rgba(30, 50, 80, 0.18);
+}
+
+
+/* =========================
+   LEFT IMAGE
+========================= */
+
+.login-image-section {
+  position: relative;
+
+  min-height: 520px;
+
+  background-image:
+    url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=90");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.login-image-section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(8, 30, 65, 0.88),
+    rgba(8, 30, 65, 0.20)
+  );
+}
+
+.image-content {
+  position: absolute;
+
+  left: 35px;
+  right: 35px;
+  bottom: 35px;
+
+  color: white;
+
+  z-index: 2;
+}
+
+.image-content h1 {
+  margin: 0 0 10px;
+
+  font-size: 36px;
+
+  font-weight: 700;
+}
+
+.image-content p {
+  margin: 0 0 8px;
+
+  font-size: 16px;
+
+  line-height: 1.5;
+}
+
+.image-content span {
+  font-size: 13px;
+
+  opacity: 0.9;
+}
+
+
+/* =========================
+   RIGHT LOGIN
+========================= */
+
+.login-form-section {
+  padding: 50px 45px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.login-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #e8efff;
+
+  border-radius: 14px;
+
+  font-size: 27px;
+
+  margin-bottom: 15px;
+}
+
+.login-form-section h2 {
+  margin: 0;
+
+  color: #172554;
+
+  font-size: 29px;
+}
+
+.login-subtitle {
+  margin-top: 8px;
+  margin-bottom: 28px;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   LABELS
+========================= */
+
+.login-form-section label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #334155;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.login-form-section input {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  margin-bottom: 18px;
+
+  border: 1px solid #d7dfeb;
+
+  border-radius: 10px;
+
+  background: #f8fafc;
+
+  color: #1e293b;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.login-form-section input:focus {
+  border-color: #4169e1;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(65, 105, 225, 0.10);
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-button {
+  width: 100%;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: linear-gradient(
+    135deg,
+    #4169e1,
+    #5b7cfa
+  );
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.login-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(65, 105, 225, 0.25);
+}
+
+
+/* =========================
+   REGISTER
+========================= */
+
+.register-section {
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  text-align: center;
+
+  border-top: 1px solid #edf0f5;
+}
+
+.register-section p {
+  margin: 0 0 10px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.register-button {
+  border: none;
+
+  background: transparent;
+
+  color: #4169e1;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.register-button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  .student-login-card {
+    grid-template-columns: 1fr;
+
+    width: 430px;
+  }
+
+  .login-image-section {
+    min-height: 220px;
+  }
+
+  .login-form-section {
+    padding: 32px 28px;
+  }
+
+  .image-content h1 {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,369 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.admin-login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f1f5f9;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.admin-login-layout {
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 55px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* LEFT WELCOME PANEL */
+.admin-welcome-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 55px 7%;
+  color: #ffffff;
+  background: linear-gradient(145deg, #172554, #1d4ed8 65%, #4338ca);
+}
+
+.campus-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 45px;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.campus-brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 29px;
+}
+
+.portal-label {
+  margin: 0 0 12px;
+  color: #bfdbfe;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.admin-welcome-panel > h1 {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.2;
+}
+
+.welcome-description {
+  max-width: 490px;
+  margin: 0 0 32px;
+  color: #dbeafe;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.admin-features {
+  display: grid;
+  gap: 22px;
+}
+
+.admin-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.feature-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 22px;
+}
+
+.admin-feature h3 {
+  margin: 2px 0 5px;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.admin-feature p {
+  margin: 0;
+  color: #dbeafe;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.welcome-footer {
+  margin: 38px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #dbeafe;
+  font-size: 13px;
+}
+
+/* RIGHT LOGIN PANEL */
+.admin-login-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background:
+    radial-gradient(circle at top right, #dbeafe, transparent 45%),
+    #f8fafc;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 38px;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.09);
+}
+
+.login-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  border-radius: 17px;
+  background: #dbeafe;
+  font-size: 28px;
+}
+
+.login-eyebrow {
+  margin: 0 0 8px;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.login-card h2 {
+  margin: 0 0 10px;
+  color: #172554;
+  font-size: 31px;
+}
+
+.login-description {
+  margin: 0 0 28px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-card label {
+  margin-top: 9px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.admin-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 49px;
+  padding: 0 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.admin-input-wrapper:focus-within {
+  border-color: #2563eb;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.input-icon {
+  flex-shrink: 0;
+  font-size: 15px;
+}
+
+.admin-input-wrapper input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #0f172a;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.show-password-button {
+  flex-shrink: 0;
+  padding: 5px;
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-signin-button {
+  min-height: 50px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(120deg, #2563eb, #4338ca);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-signin-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+.admin-signin-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.admin-login-message {
+  padding: 11px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.secure-note {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 27px;
+  padding: 15px;
+  border: 1px solid #dbeafe;
+  border-radius: 11px;
+  background: #eff6ff;
+}
+
+.secure-note > span {
+  font-size: 23px;
+}
+
+.secure-note strong {
+  color: #1e3a8a;
+  font-size: 13px;
+}
+
+.secure-note p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.admin-register-link {
+  margin: 23px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  text-align: center;
+}
+
+.admin-register-link a {
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.admin-register-link a:hover {
+  text-decoration: underline;
+}
+
+/* COPYRIGHT */
+.admin-copyright {
+  min-height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background: #0f172a;
+  color: #cbd5e1;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+  .admin-login-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-welcome-panel {
+    padding: 40px 8%;
+  }
+
+  .campus-brand {
+    margin-bottom: 28px;
+  }
+
+  .admin-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  .admin-login-panel {
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-welcome-panel {
+    padding: 32px 22px;
+  }
+
+  .campus-brand {
+    font-size: 23px;
+  }
+
+  .admin-features {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .login-card {
+    padding: 27px 21px;
+  }
+
+  .login-card h2 {
+    font-size: 27px;
+  }
+}

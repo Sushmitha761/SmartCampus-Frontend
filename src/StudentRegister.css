@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+}
+
+.student-register-page {
+  min-height: 100vh;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf2ff 0%,
+      #f8fbff 50%,
+      #e8f8f4 100%
+    );
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.student-register-card {
+  width: 950px;
+
+  max-width: 95%;
+
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  background: white;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 55px rgba(30, 50, 80, 0.18);
+}
+
+
+/* =========================
+   LEFT IMAGE
+========================= */
+
+.register-image-section {
+  position: relative;
+
+  min-height: 650px;
+
+  background-image:
+    url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=90");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+
+.register-image-section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(8, 30, 65, 0.88),
+      rgba(8, 30, 65, 0.15)
+    );
+}
+
+
+.register-image-content {
+  position: absolute;
+
+  left: 30px;
+  right: 30px;
+  bottom: 32px;
+
+  color: white;
+
+  z-index: 2;
+}
+
+
+.register-image-content h1 {
+  margin: 0 0 10px;
+
+  font-size: 34px;
+}
+
+
+.register-image-content p {
+  margin: 0 0 8px;
+
+  font-size: 16px;
+
+  line-height: 1.5;
+}
+
+
+.register-image-content span {
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  opacity: 0.9;
+}
+
+
+/* =========================
+   RIGHT FORM
+========================= */
+
+.register-form-section {
+  padding: 34px 40px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+
+.register-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #e8efff;
+
+  border-radius: 13px;
+
+  font-size: 25px;
+
+  margin-bottom: 12px;
+}
+
+
+.register-form-section h2 {
+  margin: 0;
+
+  color: #172554;
+
+  font-size: 27px;
+}
+
+
+.register-subtitle {
+  margin: 7px 0 22px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   INPUT GROUP
+========================= */
+
+.register-input-group {
+  width: 100%;
+
+  margin-bottom: 13px;
+}
+
+
+.register-input-group label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #334155;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+.register-input-group input,
+.register-input-group select {
+  width: 100%;
+
+  height: 40px;
+
+  padding: 9px 12px;
+
+  border: 1px solid #d7dfeb;
+
+  border-radius: 9px;
+
+  background: #f8fafc;
+
+  color: #1e293b;
+
+  font-size: 13px;
+
+  outline: none;
+}
+
+
+.register-input-group input:focus,
+.register-input-group select:focus {
+  border-color: #4169e1;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 3px rgba(65, 105, 225, 0.09);
+}
+
+
+/* =========================
+   TWO COLUMN ROW
+========================= */
+
+.register-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+}
+
+
+/* =========================
+   REGISTER BUTTON
+========================= */
+
+.register-submit-button {
+  width: 100%;
+
+  height: 42px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #4169e1,
+      #5b7cfa
+    );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.register-submit-button:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 20px rgba(65, 105, 225, 0.25);
+}
+
+
+/* =========================
+   LOGIN LINK
+========================= */
+
+.login-link-section {
+  margin-top: 17px;
+
+  padding-top: 15px;
+
+  text-align: center;
+
+  border-top: 1px solid #edf0f5;
+}
+
+
+.login-link-section p {
+  margin: 0 0 5px;
+
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+
+.login-link-button {
+  border: none;
+
+  background: transparent;
+
+  color: #4169e1;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+.login-link-button:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+  .student-register-page {
+    padding: 20px;
+  }
+
+  .student-register-card {
+    grid-template-columns: 1fr;
+
+    max-width: 450px;
+  }
+
+  .register-image-section {
+    min-height: 220px;
+  }
+
+  .register-form-section {
+    padding: 30px 25px;
+  }
+
+  .register-row {
+    grid-template-columns: 1fr;
+  }
+}
