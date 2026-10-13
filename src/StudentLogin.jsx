@@ -14,7 +14,7 @@ function StudentLogin() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/students/login",
+        "https://smartcampus-backend-96ly.onrender.com/api/students/login",
         {
           rollNo: rollNo.trim(),
           password: password

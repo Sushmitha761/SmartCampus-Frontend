@@ -12,7 +12,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const API = "http://localhost:8080/api";
+const API = "https://smartcampus-backend-96ly.onrender.com/api";
 
 function AdminDashboard() {
   const navigate = useNavigate();

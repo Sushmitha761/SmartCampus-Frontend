@@ -1,31 +1,31 @@
-
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
 import "./AdminLogin.css";
 
 function AdminLogin() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate();
-
   const handleLogin = async (e) => {
     e.preventDefault();
-    setMessage("");
     setLoading(true);
+    setMessage("");
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/admin/login",
+        "https://smartcampus-backend-96ly.onrender.com/api/admin/login",
         {
           email: email.trim().toLowerCase(),
           password: password,
         }
       );
+
+      console.log("Admin login response:", response.data);
 
       if (response.data === "Admin login successful!") {
         navigate("/admin-dashboard");
@@ -37,10 +37,13 @@ function AdminLogin() {
         );
       }
     } catch (error) {
+      console.error("Admin login error:", error);
+      console.log("Backend response:", error.response?.data);
+
       setMessage(
         typeof error.response?.data === "string"
           ? error.response.data
-          : "Invalid admin email or password."
+          : "Login failed. Please check your email and password."
       );
     } finally {
       setLoading(false);
@@ -48,156 +51,83 @@ function AdminLogin() {
   };
 
   return (
-    <main className="admin-login-page">
-      <section className="admin-login-layout">
+    <div className="admin-login-page">
+      <div className="admin-login-card">
 
-        {/* LEFT WELCOME SECTION */}
-        <div className="admin-welcome-panel">
-          <div className="campus-brand">
-            <span className="campus-brand-icon">🎓</span>
-            <span>SmartCampus</span>
-          </div>
+        <div className="admin-login-image-section">
+          <div className="admin-login-image-content">
+            <h1>SmartCampus</h1>
 
-          <p className="portal-label">ADMIN PORTAL</p>
+            <p>College Complaint Management System</p>
 
-          <h1>Welcome Back, Admin!</h1>
-
-          <p className="welcome-description">
-            Manage campus complaints, departments, and student
-            support services efficiently from one place.
-          </p>
-
-          <div className="admin-features">
-            <div className="admin-feature">
-              <span className="feature-icon">📋</span>
-              <div>
-                <h3>Manage Complaints</h3>
-                <p>Track and resolve student complaints.</p>
-              </div>
-            </div>
-
-            <div className="admin-feature">
-              <span className="feature-icon">🏢</span>
-              <div>
-                <h3>Manage Departments</h3>
-                <p>Organize departments and assigned staff.</p>
-              </div>
-            </div>
-
-            <div className="admin-feature">
-              <span className="feature-icon">📊</span>
-              <div>
-                <h3>View Statistics</h3>
-                <p>Monitor complaint status and progress.</p>
-              </div>
-            </div>
-
-            <div className="admin-feature">
-              <span className="feature-icon">🛡️</span>
-              <div>
-                <h3>Secure Admin Access</h3>
-                <p>Access the administration dashboard.</p>
-              </div>
-            </div>
-          </div>
-
-          <p className="welcome-footer">
-            A better campus starts with better support.
-          </p>
-        </div>
-
-        {/* RIGHT LOGIN SECTION */}
-        <div className="admin-login-panel">
-          <div className="login-card">
-
-            <div className="login-icon">🔐</div>
-
-            <p className="login-eyebrow">WELCOME BACK</p>
-            <h2>Admin Login</h2>
-
-            <p className="login-description">
-              Sign in to your SmartCampus account
-            </p>
-
-            <form onSubmit={handleLogin}>
-              <label htmlFor="admin-login-email">
-                Admin Email
-              </label>
-
-              <div className="admin-input-wrapper">
-                <span className="input-icon">✉</span>
-                <input
-                  id="admin-login-email"
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  autoComplete="username"
-                  required
-                />
-              </div>
-
-              <label htmlFor="admin-login-password">
-                Password
-              </label>
-
-              <div className="admin-input-wrapper">
-                <span className="input-icon">🔒</span>
-                <input
-                  id="admin-login-password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="current-password"
-                  required
-                />
-
-                <button
-                  className="show-password-button"
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? "Hide" : "Show"}
-                </button>
-              </div>
-
-              {message && (
-                <div className="admin-login-message" role="alert">
-                  {message}
-                </div>
-              )}
-
-              <button
-                className="admin-signin-button"
-                type="submit"
-                disabled={loading}
-              >
-                {loading ? "Signing in..." : "Sign In →"}
-              </button>
-            </form>
-
-            <div className="secure-note">
-              <span>🛡️</span>
-              <div>
-                <strong>Secure Admin Access</strong>
-                <p>Authorized administration portal</p>
-              </div>
-            </div>
-
-            <p className="admin-register-link">
-              New administrator?{" "}
-              <Link to="/admin-register">Register here</Link>
-            </p>
+            <span>
+              Manage campus complaints efficiently.
+            </span>
           </div>
         </div>
 
-      </section>
+        <div className="admin-login-form-section">
+          <div className="admin-login-icon">🔐</div>
 
-      <footer className="admin-copyright">
-        © 2026 SmartCampus. All rights reserved.
-      </footer>
-    </main>
+          <h2>Admin Login</h2>
+
+          <p className="admin-login-subtitle">
+            Login to manage campus activities
+          </p>
+
+          <form onSubmit={handleLogin}>
+            <label htmlFor="admin-email">Email</label>
+
+            <input
+              id="admin-email"
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
+            <label htmlFor="admin-password">Password</label>
+
+            <input
+              id="admin-password"
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+
+            {message && (
+              <p role="alert" className="admin-login-message">
+                {message}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="admin-login-button"
+              disabled={loading}
+            >
+              {loading ? "Logging in..." : "Login"}
+            </button>
+          </form>
+
+          <div className="admin-register-section">
+            <p>Don't have an admin account?</p>
+
+            <button
+              type="button"
+              className="admin-register-button"
+              onClick={() => navigate("/admin-register")}
+            >
+              Create Admin Account
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
   );
 }
 

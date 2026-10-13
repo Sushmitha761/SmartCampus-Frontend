@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./MyComplaints.css";
 
-const API = "http://localhost:8080/api";
+const API = "https://smartcampus-backend-96ly.onrender.com/api";
 
 function MyComplaints() {
   const navigate = useNavigate();

@@ -25,8 +25,12 @@ function AdminRegister() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/admin/register",
-        { name: name.trim(), email: email.trim(), password }
+        "https://smartcampus-backend-96ly.onrender.com/api/admin/register",
+        {
+          name: name.trim(),
+          email: email.trim(),
+          password: password,
+        }
       );
 
       setMessage(
@@ -35,8 +39,13 @@ function AdminRegister() {
           : "Admin registration successful!"
       );
 
-      setTimeout(() => navigate("/admin-login"), 1200);
+      setTimeout(() => {
+        navigate("/admin-login");
+      }, 1200);
     } catch (error) {
+      console.error("Admin registration error:", error);
+      console.log("Backend response:", error.response?.data);
+
       setMessage(
         typeof error.response?.data === "string"
           ? error.response.data
@@ -58,12 +67,14 @@ function AdminRegister() {
 
         <div className="admin-register-content">
           <h2>Create Admin Account</h2>
+
           <p className="admin-register-description">
             Register to manage campus complaints and departments.
           </p>
 
           <form onSubmit={handleRegister}>
             <label htmlFor="admin-name">Admin Name</label>
+
             <input
               id="admin-name"
               type="text"
@@ -74,6 +85,7 @@ function AdminRegister() {
             />
 
             <label htmlFor="admin-email">Email Address</label>
+
             <input
               id="admin-email"
               type="email"
@@ -84,6 +96,7 @@ function AdminRegister() {
             />
 
             <label htmlFor="admin-password">Password</label>
+
             <input
               id="admin-password"
               type="password"

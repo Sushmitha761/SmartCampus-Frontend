@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -19,7 +18,7 @@ function Profile() {
 
     axios
       .get(
-        `http://localhost:8080/api/students/profile/${encodeURIComponent(rollNo)}`
+        `https://smartcampus-backend-96ly.onrender.com/api/students/profile/${encodeURIComponent(rollNo)}`
       )
       .then((response) => {
         setStudent(response.data);
@@ -34,7 +33,6 @@ function Profile() {
   return (
     <div className="profile-page">
       <div className="profile-card">
-
         {/* PROFILE HEADER */}
         <div className="profile-header">
           <div className="profile-avatar">
@@ -89,7 +87,6 @@ function Profile() {
 
           {student && (
             <div className="profile-details">
-
               <div className="profile-row">
                 <span>Name</span>
                 <strong>{student.name || "Not available"}</strong>
@@ -119,7 +116,6 @@ function Profile() {
                 <span>Phone</span>
                 <strong>{student.phone || "Not available"}</strong>
               </div>
-
             </div>
           )}
 
@@ -134,7 +130,6 @@ function Profile() {
             ← Back to Dashboard
           </button>
         </div>
-
       </div>
     </div>
   );

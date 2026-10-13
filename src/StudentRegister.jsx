@@ -19,7 +19,7 @@ function StudentRegister() {
 
     try {
       await axios.post(
-        "http://localhost:8080/api/students/register",
+        "https://smartcampus-backend-96ly.onrender.com/api/students/register",
         {
           name,
           rollNo,

@@ -12,6 +12,8 @@ function Complaint() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const API = "https://smartcampus-backend-96ly.onrender.com/api";
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -27,21 +29,23 @@ function Complaint() {
 
     try {
       const studentResponse = await axios.get(
-        `http://localhost:8080/api/students/id/${encodeURIComponent(rollNo)}`
+        `${API}/students/id/${encodeURIComponent(rollNo)}`
       );
 
       const studentId = studentResponse.data;
 
-      await axios.post(
-        "http://localhost:8080/api/complaints/submit",
-        {
-          studentId: studentId,
-          category: category,
-          title: title.trim(),
-          description: description.trim(),
-          priority: priority,
-        }
-      );
+      if (studentId == null) {
+        setMessage("Student not found. Please login again.");
+        return;
+      }
+
+      await axios.post(`${API}/complaints/submit`, {
+        studentId: studentId,
+        category: category,
+        title: title.trim(),
+        description: description.trim(),
+        priority: priority,
+      });
 
       setMessage("Complaint registered successfully!");
       setCategory("");
@@ -50,6 +54,7 @@ function Complaint() {
       setPriority("Medium");
     } catch (error) {
       console.error("Complaint submission error:", error);
+      console.log("Backend response:", error.response?.data);
 
       setMessage(
         typeof error.response?.data === "string"
